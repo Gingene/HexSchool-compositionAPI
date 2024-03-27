@@ -8,6 +8,8 @@
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "build-only": "vite build",
+    "gh": "gh-pages -d dist",
+    "deploy": "vite build && gh-pages -d dist",
     "type-check": "vue-tsc --build --force",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .eslintignore",
     "format": "prettier --write src/ --ignore-path .eslintignore"
@@ -16,6 +18,7 @@
     "@vueuse/core": "^10.9.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "gh-pages": "^6.1.1",
     "lucide-vue-next": "^0.363.0",
     "pinia": "^2.1.7",
     "radix-vue": "^1.5.3",
