@@ -13,6 +13,12 @@ import { Button } from '@/components/ui/button';
             <Button class="w-full"> TodoList </Button>
           </RouterLink>
         </li>
+        <li>
+          <h3 class="text-center mb-4">第三周</h3>
+          <RouterLink to="/todosapi" class="block w-full text-center">
+            <Button class="w-full"> TodoListAPI </Button>
+          </RouterLink>
+        </li>
       </ul>
     </main>
   </section>

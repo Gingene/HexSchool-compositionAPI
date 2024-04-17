@@ -2,7 +2,7 @@ import { ref, computed } from 'vue';
 import { defineStore } from 'pinia';
 import type { Todo, TodoList, TodoListStateType } from '@/types/todo';
 
-export const useTodoList = defineStore('todoList', () => {
+export const useTodoListAsync = defineStore('todoListAsync', () => {
   const todoList = ref<TodoList>([]);
   const localTodos: string = localStorage.getItem('hex-todo') ?? '[]';
   todoList.value = JSON.parse(localTodos);

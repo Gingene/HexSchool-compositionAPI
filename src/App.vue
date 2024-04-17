@@ -1,11 +1,14 @@
 <script setup lang="ts">
-import HeaderNav from '@/components/layout/HeaderNav.vue';
+import HeaderNav from '@/layout/HeaderNav.vue';
+import Toaster from '@/components/ui/toast/Toaster.vue';
 </script>
 
 <template>
   <HeaderNav />
 
   <RouterView />
+
+  <Toaster />
 </template>
 
 <style lang="scss">
