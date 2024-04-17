@@ -17,13 +17,18 @@ import {
   SheetTitle,
   SheetTrigger
 } from '@/components/ui/sheet';
-
 import { Sun, Moon, AlignJustify } from 'lucide-vue-next';
+import { storeToRefs } from 'pinia';
+import { useUserStore } from '@/stores';
+
+const { nickname, token } = storeToRefs(useUserStore());
+const { checkLogin } = useUserStore();
 
 const { changeTheme, toggleDarkTheme, isDark, colorTheme } = useTheme();
 
 onMounted(() => {
   changeTheme('theme-orange');
+  checkLogin();
 });
 </script>
 
@@ -37,8 +42,11 @@ onMounted(() => {
           <li>
             <RouterLink to="/">Home</RouterLink>
           </li>
-          <li>
+          <li v-if="!token">
             <RouterLink to="/todos">TodoList</RouterLink>
+          </li>
+          <li>
+            <RouterLink to="/todosapi"> TodoListAPI </RouterLink>
           </li>
           <li>
             <Button @click="toggleDarkTheme">
@@ -69,6 +77,14 @@ onMounted(() => {
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
+          </li>
+          <li class="whitespace-nowrap">
+            <template v-if="!token">
+              <RouterLink to="/login">
+                <Button> login </Button>
+              </RouterLink>
+            </template>
+            <template v-else> {{ nickname }} 您好 </template>
           </li>
         </ul>
 
@@ -127,5 +143,3 @@ onMounted(() => {
     </div>
   </header>
 </template>
-
-<style scoped></style>
