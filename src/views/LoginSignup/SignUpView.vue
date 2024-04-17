@@ -34,9 +34,10 @@ const signupInputs: FormType[] = [
 
 const signup = async (user: SignUpType) => {
   try {
-    const res: SignupData = await http.post<any, SignupData>(endpoint.users.signup, user);
+    await http.post<any, SignupData>(endpoint.users.signup, user);
+
     toast({
-      title: res.message
+      title: '註冊成功'
     });
     router.replace({ name: 'login' });
   } catch (err: any) {
